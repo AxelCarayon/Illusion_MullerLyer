@@ -6,18 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".Menu_Principal">
 
+
+
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="198dp"
         android:layout_height="190dp"
         android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
+        android:contentDescription="@string/logo_universit_champollion"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_champo3" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button_commencer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -27,7 +30,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/button_options"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="30dp"

@@ -6,4 +6,10 @@
     <string name="commencer">Commencer</string>
     <string name="options">Options</string>
     <string name="illusion_de_m_ller_lyer">Illusion de Müller-Lyer</string>
+    <string name="nombre_d_essais">Nombre d\'essais</string>
+    <string name="_0">0</string>
+    <string name="valider">Valider</string>
+    <string name="nombre_d_essais_de_l_entrainement">Nombre d\'essais de l\'entrainement</string>
+    <string name="nombre_d_essais_de_l_exercice">Nombre d\'essais de l\'exercice</string>
+    <string name="logo_universit_champollion">logo université Champollion</string>
 </resources>
