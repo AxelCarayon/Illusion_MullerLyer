@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Illusion Müller-Lyer</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="commencer">Commencer</string>
+    <string name="options">Options</string>
+    <string name="illusion_de_m_ller_lyer">Illusion de Müller-Lyer</string>
+</resources>
