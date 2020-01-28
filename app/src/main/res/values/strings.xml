@@ -12,4 +12,5 @@
     <string name="nombre_d_essais_de_l_entrainement">Nombre d\'essais de l\'entrainement</string>
     <string name="nombre_d_essais_de_l_exercice">Nombre d\'essais de l\'exercice</string>
     <string name="logo_universit_champollion">logo université Champollion</string>
+    <string name="seed">Seed</string>
 </resources>
