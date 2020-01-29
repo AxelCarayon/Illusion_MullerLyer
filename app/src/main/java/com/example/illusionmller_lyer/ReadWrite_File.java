@@ -52,9 +52,9 @@ class ReadWrite_File {
         File dir = new File (root.getAbsolutePath() + "/IllusionMullerLyer");
         //Log.i("properties",dir+filepath);
         if (checkExternalMedia()) {
-            try (InputStream output = new FileInputStream(dir+filepath)) {
+            try (InputStream input = new FileInputStream(dir+filepath)) {
                 Properties prop = new Properties();
-
+                prop.load(input);
                 // set the properties value
                 resultat[0] = prop.getProperty("nb_entrainement");
                 resultat[1] = prop.getProperty("nb_exercice");
