@@ -14,7 +14,8 @@ import android.widget.Button;
 
 public class Menu_Principal extends AppCompatActivity {
 
-    Button button_options; //bouton options
+    Button button_options;
+    Button button_commencer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,37 +23,41 @@ public class Menu_Principal extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_menu__principal);
             button_options = findViewById(R.id.button_options);
+            button_commencer = findViewById(R.id.button_commencer);
+
+            //listener bouton commencer
+            button_commencer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    openNewActivity(Consigne_Entrainement.class);
+                }
+            });
 
 
-            //listener du bouton options
+            //listener du bouton commencer
             button_options.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    openNewActivity();
+                    openNewActivity(Options.class);
                 }
             });
         }
     }
 
-    public void openNewActivity() {
-        Intent intent = new Intent(this, Options.class);
+    public void openNewActivity(Class activite) {
+        Intent intent = new Intent(this, activite);
         startActivity(intent);
     }
 
     public boolean isStoragePermissionGranted() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                    == PackageManager.PERMISSION_GRANTED) {
-                Log.v("permission", "Permission is granted");
-                return true;
-            } else {
-                Log.wtf("permission", "Permission is revoked");
-                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
-                return false;
-            }
-        } else { //permission is automatically granted on sdk<23 upon installation
+        if (checkSelfPermission(android.Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                == PackageManager.PERMISSION_GRANTED) {
             Log.v("permission", "Permission is granted");
             return true;
+        } else {
+            Log.wtf("permission", "Permission is revoked");
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
+            return false;
         }
     }
 }
