@@ -17,4 +17,7 @@
     <string name="egal">Egal</string>
     <string name="moins_grand">Moins grand</string>
     <string name="plus_grand">Plus grand</string>
+    <string name="fin_de_l_entrainement">Fin de l\'entrainement</string>
+    <string name="les_prochaines_s_ries_seront_enregistr_es_et_les_r_sultats_seront_affich_s_la_fin">Les prochaines séries seront enregistrées et les résultats seront affichés à la fin.</string>
+    <string name="seed_0_pour_al_atoire">Seed (0 pour aléatoire)</string>
 </resources>

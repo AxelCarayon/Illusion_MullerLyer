@@ -11,9 +11,9 @@ import java.util.Random;
 
 public class Draw_Canvas extends View {
     private Paint paint;
-    private int[] nb_traits;
-    private int[] compteur;
     private double coeffReducTaille;
+    private long seed;
+    private Random r;
 
     private void init(){
         paint = new Paint();
@@ -21,12 +21,17 @@ public class Draw_Canvas extends View {
         paint.setStrokeWidth(5);
         paint.setTextSize(50);
     }
-    public Draw_Canvas(Context context,double t) {
+    public Draw_Canvas(Context context,double taille, long seed) {
         super(context);
-        if (t>1) {
+        this.seed = seed;
+        if (taille>1) {
             coeffReducTaille = 1;
         }else{
-            coeffReducTaille = t;
+            coeffReducTaille = taille;
+        }
+        r = new Random();
+        if (seed != 0){
+            r.setSeed(seed);
         }
         init();
     }
@@ -45,7 +50,7 @@ public class Draw_Canvas extends View {
 
         int Xref_debut = (int) Math.round(xCentre+(xCentre*coeffReducTaille)/2);
         int Xref_fin = (int) Math.round(xMax-(xCentre*coeffReducTaille)/2);
-        Random r = new Random();
+
         double randomValue = 0.1 + (0.9 - 0.1) * r.nextDouble();
         int xRand_debut = (int) Math.round(0+(xCentre*randomValue)/2);
         int xRand_fin = (int) Math.round(xCentre-(xCentre*randomValue)/2);

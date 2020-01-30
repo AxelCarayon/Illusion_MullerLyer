@@ -21,7 +21,7 @@ public class Consigne_Entrainement extends AppCompatActivity {
         button_commencer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                openNewActivity(Experience.class);
+                openNewActivity(Experience_Entrainement.class);
             }
         });
 

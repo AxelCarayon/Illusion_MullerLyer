@@ -15,17 +15,25 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".Experience"
-            android:theme="@style/AppFullScreenTheme"/>
+            android:name=".Consigne_Exercice"
+            android:theme="@style/AppFullScreenTheme"
+            android:screenOrientation="landscape"/>
+        <activity
+            android:name=".Experience_Entrainement"
+            android:theme="@style/AppFullScreenTheme"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Consigne_Entrainement"
-            android:theme="@style/AppFullScreenTheme" />
+            android:theme="@style/AppFullScreenTheme"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Options"
-            android:theme="@style/AppFullScreenTheme" />
+            android:theme="@style/AppFullScreenTheme"
+            android:screenOrientation="landscape"/>
         <activity
             android:name=".Menu_Principal"
-            android:theme="@style/AppFullScreenTheme">
+            android:theme="@style/AppFullScreenTheme"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
