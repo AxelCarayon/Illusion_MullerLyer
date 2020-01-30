@@ -15,11 +15,14 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
+            android:name=".Experience"
+            android:theme="@style/AppFullScreenTheme"/>
+        <activity
             android:name=".Consigne_Entrainement"
-            android:theme="@style/AppFullScreenTheme"></activity>
+            android:theme="@style/AppFullScreenTheme" />
         <activity
             android:name=".Options"
-            android:theme="@style/AppFullScreenTheme"></activity>
+            android:theme="@style/AppFullScreenTheme" />
         <activity
             android:name=".Menu_Principal"
             android:theme="@style/AppFullScreenTheme">

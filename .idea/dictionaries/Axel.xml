@@ -1,9 +1,12 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Axel">
     <words>
+      <w>activite</w>
       <w>ajout</w>
       <w>bouton</w>
+      <w>coeff</w>
       <w>commencer</w>
+      <w>consigne</w>
       <w>entrainement</w>
       <w>erreur</w>
       <w>essais</w>
@@ -13,13 +16,17 @@
       <w>initialiser</w>
       <w>nombre</w>
       <w>parametres</w>
+      <w>reduc</w>
       <w>resultat</w>
       <w>sauvegardées</w>
       <w>seekbar</w>
+      <w>taille</w>
       <w>université</w>
       <w>valeur</w>
       <w>valeurs</w>
       <w>valider</w>
+      <w>xcentre</w>
+      <w>ycentre</w>
     </words>
   </dictionary>
 </component>
