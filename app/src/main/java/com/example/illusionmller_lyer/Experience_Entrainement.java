@@ -14,7 +14,6 @@ public class Experience_Entrainement extends AppCompatActivity {
     private Button button_egal;
     private Button button_plus;
     private Button button_moins;
-    private boolean est_entrainement;
     private FrameLayout canvas;
     private Draw_Canvas_Entrainement draw_canvasEntrainement;
     private int nbRepetitions;
@@ -31,12 +30,6 @@ public class Experience_Entrainement extends AppCompatActivity {
         canvas = findViewById(R.id.frame_canvas);
         canvas.addView(draw_canvasEntrainement);
 
-        try {
-            est_entrainement = getIntent().getExtras().getBoolean("entrainement");
-        }catch (Exception e){
-            est_entrainement = false;
-        }
-        Log.i("entrainement",String.valueOf(est_entrainement));
         button_egal = findViewById(R.id.button_egal);
         button_plus = findViewById(R.id.button_moins_grand);
         button_moins = findViewById(R.id.button_plus_grand);
