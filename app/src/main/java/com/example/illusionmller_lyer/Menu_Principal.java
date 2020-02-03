@@ -6,7 +6,6 @@ import androidx.core.app.ActivityCompat;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -21,7 +20,7 @@ public class Menu_Principal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         if (isStoragePermissionGranted()) {
             super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_menu__principal);
+            setContentView(R.layout.activity_menu_principal);
             button_options = findViewById(R.id.button_options);
             button_commencer = findViewById(R.id.button_commencer);
 

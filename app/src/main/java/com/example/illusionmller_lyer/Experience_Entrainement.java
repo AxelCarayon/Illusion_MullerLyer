@@ -3,7 +3,6 @@ package com.example.illusionmller_lyer;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -17,20 +16,20 @@ public class Experience_Entrainement extends AppCompatActivity {
     private Button button_moins;
     private boolean est_entrainement;
     private FrameLayout canvas;
-    private Draw_Canvas draw_canvas;
+    private Draw_Canvas_Entrainement draw_canvasEntrainement;
     private int nbRepetitions;
     private long seed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_experience);
+        setContentView(R.layout.activity_experience_entrainement);
         int[] options = lireOptions();
         nbRepetitions = options[0];
         seed = options[1];
-        draw_canvas = new Draw_Canvas(this,0.6,seed);
+        draw_canvasEntrainement = new Draw_Canvas_Entrainement(this,0.6,seed);
         canvas = findViewById(R.id.frame_canvas);
-        canvas.addView(draw_canvas);
+        canvas.addView(draw_canvasEntrainement);
 
         try {
             est_entrainement = getIntent().getExtras().getBoolean("entrainement");
@@ -49,7 +48,7 @@ public class Experience_Entrainement extends AppCompatActivity {
                 if (nbRepetitions == 0){
                     activiteSuivante(Consigne_Exercice.class);
                 }else{
-                    draw_canvas.invalidate();
+                    draw_canvasEntrainement.invalidate();
                 }
             }
         });
@@ -61,7 +60,7 @@ public class Experience_Entrainement extends AppCompatActivity {
                 if (nbRepetitions == 0){
                     activiteSuivante(Consigne_Exercice.class);
                 }else{
-                    draw_canvas.invalidate();
+                    draw_canvasEntrainement.invalidate();
                 }
             }
         });
@@ -73,7 +72,7 @@ public class Experience_Entrainement extends AppCompatActivity {
                 if (nbRepetitions == 0){
                     activiteSuivante(Consigne_Exercice.class);
                 }else{
-                    draw_canvas.invalidate();
+                    draw_canvasEntrainement.invalidate();
                 }
             }
         });
@@ -86,7 +85,7 @@ public class Experience_Entrainement extends AppCompatActivity {
          res[0] = Integer.parseInt(file.read()[0]);
          res[1] = Integer.parseInt(file.read()[2]);
         }catch (Exception e){
-            res[0] = 1;
+            res[0] = 5;
             res[1] = 0;
         }
         return res;

@@ -9,10 +9,9 @@ import android.view.View;
 
 import java.util.Random;
 
-public class Draw_Canvas extends View {
+public class Draw_Canvas_Entrainement extends View {
     private Paint paint;
     private double coeffReducTaille;
-    private long seed;
     private Random r;
 
     private void init(){
@@ -21,9 +20,8 @@ public class Draw_Canvas extends View {
         paint.setStrokeWidth(5);
         paint.setTextSize(50);
     }
-    public Draw_Canvas(Context context,double taille, long seed) {
+    public Draw_Canvas_Entrainement(Context context, double taille, long seed) {
         super(context);
-        this.seed = seed;
         if (taille>1) {
             coeffReducTaille = 1;
         }else{
@@ -33,11 +31,6 @@ public class Draw_Canvas extends View {
         if (seed != 0){
             r.setSeed(seed);
         }
-        init();
-    }
-    public Draw_Canvas(Context context, AttributeSet attrs, int defStyle) {
-        super(context, attrs, defStyle);
-        paint.reset();
         init();
     }
 
@@ -60,9 +53,8 @@ public class Draw_Canvas extends View {
 
         canvas.drawText("Référence",xCentre+1,50,paint);
 
-        paint.setColor(Color.RED);
-        canvas.drawLine(xMax/2, 0, xMax/2, yMax, paint);
-        paint.setColor(Color.BLACK);
-
+        //paint.setColor(Color.RED);
+        //canvas.drawLine(xMax/2, 0, xMax/2, yMax, paint);
+        //paint.setColor(Color.BLACK);
     }
 }

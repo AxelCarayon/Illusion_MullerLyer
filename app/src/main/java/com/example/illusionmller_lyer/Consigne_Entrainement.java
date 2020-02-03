@@ -14,7 +14,7 @@ public class Consigne_Entrainement extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_consigne__entrainement);
+        setContentView(R.layout.activity_consigne_entrainement);
 
         button_commencer = findViewById(R.id.button_commencer_entrainement);
 
