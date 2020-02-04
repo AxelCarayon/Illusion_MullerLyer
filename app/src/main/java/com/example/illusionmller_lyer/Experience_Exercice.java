@@ -42,7 +42,7 @@ public class Experience_Exercice extends AppCompatActivity {
                 draw_canvasExercice.envoyerReponse(-1);
                 if (nbRepetitions == 0){
                     if (secondeSerie) {
-                        activiteSuivante(Menu_Principal.class);
+                        activiteSuivante(AfficherResultats.class);
                     }
                     else{
                         nbRepetitions = options[0];
@@ -62,7 +62,7 @@ public class Experience_Exercice extends AppCompatActivity {
                 draw_canvasExercice.envoyerReponse(1);
                 if (nbRepetitions == 0){
                     if (secondeSerie) {
-                        activiteSuivante(Menu_Principal.class);
+                        activiteSuivante(AfficherResultats.class);
                     }
                     else{
                         nbRepetitions = options[0];
@@ -82,7 +82,7 @@ public class Experience_Exercice extends AppCompatActivity {
                 draw_canvasExercice.envoyerReponse(0);
                 if (nbRepetitions == 0){
                     if (secondeSerie) {
-                        activiteSuivante(Menu_Principal.class);
+                        activiteSuivante(AfficherResultats.class);
                     }
                     else{
                         nbRepetitions = options[0];
@@ -111,6 +111,8 @@ public class Experience_Exercice extends AppCompatActivity {
 
     private void activiteSuivante(Class activite){
         Intent intent = new Intent(this, activite);
+        intent.putExtra("reponses",draw_canvasExercice.getReponses());
+        intent.putExtra("attendu",draw_canvasExercice.getAttendu());
         startActivity(intent);
         finish();
     }

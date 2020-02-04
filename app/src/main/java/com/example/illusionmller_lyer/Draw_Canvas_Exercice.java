@@ -28,6 +28,7 @@ public class Draw_Canvas_Exercice extends View {
     public Draw_Canvas_Exercice(Context context, double taille, long seed, int nbRepetitions) {
         super(context);
         attendu = new ArrayList<>();
+        reponses = new ArrayList<>();
         tourMax = nbRepetitions;
         reference = taille;
         if (taille>1) {
@@ -56,7 +57,6 @@ public class Draw_Canvas_Exercice extends View {
     private void initValeurs(int nbRepetitions){
         tour = 0;
         valeurs = new ArrayList<>();
-        reponses = new ArrayList<>();
         if (secondeSerie){
             r.setSeed(seed);
             tour = -1;

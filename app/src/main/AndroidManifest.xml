@@ -15,9 +15,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".Experience_Exercice"
+            android:name=".AfficherResultats"
             android:screenOrientation="landscape"
             android:theme="@style/AppFullScreenTheme"/>
+        <activity
+            android:name=".Experience_Exercice"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppFullScreenTheme" />
         <activity
             android:name=".Consigne_Exercice"
             android:screenOrientation="landscape"
@@ -39,7 +43,7 @@
             android:screenOrientation="landscape"
             android:theme="@style/AppFullScreenTheme">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
