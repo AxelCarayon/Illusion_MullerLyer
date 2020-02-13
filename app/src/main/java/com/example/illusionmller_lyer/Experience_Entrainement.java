@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -11,6 +12,7 @@ import android.widget.FrameLayout;
 
 public class Experience_Entrainement extends AppCompatActivity {
 
+    private Handler handler;
     private Button button_egal;
     private Button button_plus;
     private Button button_moins;
@@ -18,6 +20,8 @@ public class Experience_Entrainement extends AppCompatActivity {
     private Draw_Canvas_Entrainement draw_canvasEntrainement;
     private int nbRepetitions;
     private long seed;
+    private int duree;
+    private boolean visible;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,9 +52,10 @@ public class Experience_Entrainement extends AppCompatActivity {
                 });
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
-        int[] options = lireOptions();
+        final int[] options = lireOptions();
         nbRepetitions = options[0];
         seed = options[1];
+        duree = options[2];
         draw_canvasEntrainement = new Draw_Canvas_Entrainement(this,0.6,seed);
         canvas = findViewById(R.id.frame_canvas);
         canvas.addView(draw_canvasEntrainement);
@@ -59,6 +64,10 @@ public class Experience_Entrainement extends AppCompatActivity {
         button_plus = findViewById(R.id.button_moins_grand);
         button_moins = findViewById(R.id.button_plus_grand);
 
+        handler = new Handler();
+        visible = true;
+        timer(duree);
+
         button_moins.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +75,8 @@ public class Experience_Entrainement extends AppCompatActivity {
                 if (nbRepetitions == 0){
                     activiteSuivante(Consigne_Exercice.class);
                 }else{
-                    draw_canvasEntrainement.invalidate();
+                    canvas.setVisibility(View.VISIBLE);
+                    timer(duree);
                 }
             }
         });
@@ -78,7 +88,8 @@ public class Experience_Entrainement extends AppCompatActivity {
                 if (nbRepetitions == 0){
                     activiteSuivante(Consigne_Exercice.class);
                 }else{
-                    draw_canvasEntrainement.invalidate();
+                    canvas.setVisibility(View.VISIBLE);
+                    timer(duree);
                 }
             }
         });
@@ -90,7 +101,8 @@ public class Experience_Entrainement extends AppCompatActivity {
                 if (nbRepetitions == 0){
                     activiteSuivante(Consigne_Exercice.class);
                 }else{
-                    draw_canvasEntrainement.invalidate();
+                    canvas.setVisibility(View.VISIBLE);
+                    timer(duree);
                 }
             }
         });
@@ -98,13 +110,15 @@ public class Experience_Entrainement extends AppCompatActivity {
 
     private int[] lireOptions(){
         ReadWrite_File file = new ReadWrite_File("/options.properties");
-        int[] res = new int[2];
+        int[] res = new int[3];
         try{
          res[0] = Integer.parseInt(file.read()[0]);
          res[1] = Integer.parseInt(file.read()[2]);
+         res[2] = Integer.parseInt(file.read()[3]);
         }catch (Exception e){
-            res[0] = 5;
-            res[1] = 0;
+            res[0] = 5; // repetitions
+            res[1] = 0; // seed
+            res[2] = 3; // temps
         }
         return res;
     }
@@ -113,5 +127,23 @@ public class Experience_Entrainement extends AppCompatActivity {
         Intent intent = new Intent(this, activite);
         startActivity(intent);
         finish();
+    }
+
+    private void timer(int ms){
+        handler.removeCallbacksAndMessages(null);
+        int interval = ms * 1000; // 1 Second
+        if (visible){
+            draw_canvasEntrainement.invalidate();
+        }
+        Runnable runnable = new Runnable(){
+            public void run() {
+                canvas.setVisibility(View.GONE);
+                visible = false;
+            }
+        };
+        handler.postAtTime(runnable, System.currentTimeMillis()+interval);
+        handler.postDelayed(runnable, interval);
+        visible = true;
+
     }
 }
