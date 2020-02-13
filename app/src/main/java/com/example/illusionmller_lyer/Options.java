@@ -23,12 +23,15 @@ public class Options extends AppCompatActivity {
     private int nb_entrainement;
     private int nb_exercices;
     private long seed;
+    private int duree_affichage;
     private TextView valeur_nb_essais_exercice;
     private TextView valeur_nb_essais_entrainement;
+    private TextView valeur_duree_affichage;
     private ReadWrite_File file;
     private EditText text_seed;
     private SeekBar nombre_essais;
     private SeekBar nombre_essais_entrainement;
+    private SeekBar nombre_duree_affichage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,14 +48,11 @@ public class Options extends AppCompatActivity {
 
         final View decorView = getWindow().getDecorView();
         decorView
-                .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
-                {
+                .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
 
                     @Override
-                    public void onSystemUiVisibilityChange(int visibility)
-                    {
-                        if((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0)
-                        {
+                    public void onSystemUiVisibilityChange(int visibility) {
+                        if ((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0) {
                             decorView.setSystemUiVisibility(flags);
                         }
                     }
@@ -108,7 +108,7 @@ public class Options extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "Options sauvegardées.", Toast.LENGTH_SHORT).show();
-                file.write(nb_entrainement, nb_exercices, seed);
+                file.write(nb_entrainement, nb_exercices, seed, duree_affichage);
             }
         });
         //==========================================================================================
@@ -131,24 +131,47 @@ public class Options extends AppCompatActivity {
             }
         });
         //==========================================================================================
+        //listener seekbar affichage ===============================================================
+        nombre_duree_affichage.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                                          boolean fromUser) {
+                Log.wtf("valeur", "" + progress);
+                valeur_duree_affichage.setText(String.valueOf(progress));
+                duree_affichage = progress;
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
+        });
+        //==========================================================================================
     }
 
-    private void initialiserVariables(){
+    private void initialiserVariables() {
         file = new ReadWrite_File("/options.properties");
         button_valider = findViewById(R.id.button_valider_options); //bouton valider
         nombre_essais = findViewById(R.id.seekbar_nb_essais); //seekbar exercice
+        nombre_duree_affichage = findViewById(R.id.seekBar_duree); //seekbar duree affichage
         nombre_essais_entrainement = findViewById(R.id.seekbar_nb_essais_entrainement); //seekbar entrainement
         valeur_nb_essais_exercice = findViewById(R.id.textView_nb_essais_valeur); //valeur exo
         valeur_nb_essais_entrainement = findViewById(R.id.textView_nb_essais_valeur_entrainement); //valeur entrainement
         text_seed = findViewById(R.id.editText_seed); //valeur seed
+        valeur_duree_affichage = findViewById(R.id.textView_duree_affichage_valeur);
 
         seed = 0;
         nb_entrainement = 0;
         nb_exercices = 0;
+        duree_affichage = 0;
+
 
     }
 
-    private void lectureOptions(){
+    private void lectureOptions() {
         try {
             String[] res = file.read();
             seed = Long.valueOf(res[2]);
@@ -159,6 +182,9 @@ public class Options extends AppCompatActivity {
             nb_exercices = Integer.valueOf(res[1]);
             valeur_nb_essais_exercice.setText(res[1]);
             nombre_essais.setProgress(nb_exercices);
+            valeur_duree_affichage.setText(res[3]);
+            duree_affichage = Integer.valueOf(res[3]);
+            nombre_duree_affichage.setProgress(duree_affichage);
 
         } catch (Exception e) {
             Log.wtf("erreur lecture", "impossible de lire le fichier properties");

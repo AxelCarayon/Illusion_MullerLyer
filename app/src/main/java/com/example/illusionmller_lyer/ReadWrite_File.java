@@ -19,7 +19,7 @@ class ReadWrite_File {
         this.filepath = filepath;
     }
 
-    public void write(int entrainement, int exercice, long seed){
+    public void write(int entrainement, int exercice, long seed, int duree){
         File root = android.os.Environment.getExternalStorageDirectory();
         File dir = new File (root.getAbsolutePath() + "/IllusionMullerLyer");
         dir.mkdirs();
@@ -37,6 +37,7 @@ class ReadWrite_File {
                 prop.setProperty("nb_entrainement", String.valueOf(entrainement));
                 prop.setProperty("nb_exercice", String.valueOf(exercice));
                 prop.setProperty("seed", String.valueOf(seed));
+                prop.setProperty("duree",String.valueOf(duree));
 
                 // save properties to project root folder
                 prop.store(output, "test");
@@ -47,7 +48,7 @@ class ReadWrite_File {
 
     }
     public String[] read(){
-        String[] resultat = new String[3];
+        String[] resultat = new String[4];
         File root = android.os.Environment.getExternalStorageDirectory();
         File dir = new File (root.getAbsolutePath() + "/IllusionMullerLyer");
         //Log.i("properties",dir+filepath);
@@ -59,6 +60,7 @@ class ReadWrite_File {
                 resultat[0] = prop.getProperty("nb_entrainement");
                 resultat[1] = prop.getProperty("nb_exercice");
                 resultat[2] = prop.getProperty("seed");
+                resultat[3] = prop.getProperty("duree");
             } catch (IOException io) {
                 io.printStackTrace();
             }
