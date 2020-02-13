@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.util.AttributeSet;
 import android.view.View;
 
 import java.util.Random;
@@ -50,8 +49,6 @@ public class Draw_Canvas_Entrainement extends View {
 
         canvas.drawLine(xRand_debut,yCentre,xRand_fin,yCentre,paint);
         canvas.drawLine(Xref_debut,yCentre,Xref_fin,yCentre,paint);
-
-        canvas.drawText("Référence",xCentre+1,50,paint);
 
         //paint.setColor(Color.RED);
         //canvas.drawLine(xMax/2, 0, xMax/2, yMax, paint);

@@ -147,9 +147,6 @@ public class Draw_Canvas_Exercice extends View {
             canvas.drawLine(xRand_fin,yCentre,xRand_fin+60,yCentre+60,paint);
 
         }
-
-        canvas.drawText("Référence",xCentre+1,50,paint);
-
     }
 
 

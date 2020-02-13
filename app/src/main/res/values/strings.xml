@@ -6,12 +6,14 @@
     <string name="illusion_de_m_ller_lyer">Illusion de Müller-Lyer</string>
     <string name="nombre_d_essais">Nombre d\'essais</string>
     <string name="_0">0</string>
+    <string name="continuer">Continuer</string>
     <string name="valider">Valider</string>
     <string name="nombre_d_essais_de_l_entrainement">Nombre d\'essais de l\'entrainement</string>
     <string name="nombre_d_essais_de_l_exercice">Nombre d\'essais de l\'exercice</string>
     <string name="logo_universit_champollion">logo université Champollion</string>
     <string name="seed">Seed</string>
-    <string name="tout_d_abord_l_entrainement_n_le_but_est_de_r_aliser_quelques_s_ries_rapides_qui_ne_seront_pas_prises_en_compte_pour_vour_familiariser_avec_l_exp_rience_et_avec_l_interface">Tout d\'abord l\'entrainement.  Le but est de réaliser quelques séries rapides qui ne seront pas prises en compte pour vour familiariser avec l\'expérience et avec l\'interface.</string>
+    <string name="consignesEntrainement">Vous devez comparer le trait de GAUCHE à celui de DROITE \n Vous répondez « Plus grand », « Egal », "Moins grand » si vous percevez le trait de GAUCHE plus grand, égal ou moins grand que celui de DROITE »  \n Vous avez @TEMPS@ secondes pour répondre</string>
+    <string name="consignesEntrainementSuite">Il y a trois parties : \n Un entrainement avec @ENTRAINEMENT@ essais \n Une première série de @EXERCICE@ essais \n Une seconde série de @EXERCICE@ essais \n\n A la fin vos résultats sont affichés, VOUS DEVEZ LES RECOPIER.</string>
     <string name="egal">Egal</string>
     <string name="moins_grand">Moins grand</string>
     <string name="plus_grand">Plus grand</string>
