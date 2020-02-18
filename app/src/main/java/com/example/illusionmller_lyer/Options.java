@@ -47,8 +47,7 @@ public class Options extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(flags);
 
         final View decorView = getWindow().getDecorView();
-        decorView
-                .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
+        decorView.setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener() {
 
                     @Override
                     public void onSystemUiVisibilityChange(int visibility) {
@@ -67,8 +66,8 @@ public class Options extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
                                           boolean fromUser) {
-                valeur_nb_essais_exercice.setText(String.valueOf(progress));
-                nb_exercices = progress;
+                valeur_nb_essais_exercice.setText(String.valueOf(progress+1));
+                nb_exercices = progress+1;
             }
 
             @Override
@@ -118,8 +117,8 @@ public class Options extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
                                           boolean fromUser) {
-                valeur_nb_essais_entrainement.setText(String.valueOf(progress));
-                nb_entrainement = progress;
+                valeur_nb_essais_entrainement.setText(String.valueOf(progress+1));
+                nb_entrainement = progress+1;
             }
 
             @Override
@@ -136,9 +135,9 @@ public class Options extends AppCompatActivity {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress,
                                           boolean fromUser) {
-                Log.wtf("valeur", "" + progress);
-                valeur_duree_affichage.setText(String.valueOf(progress));
-                duree_affichage = progress;
+                Log.wtf("valeur", "" + progress+1);
+                valeur_duree_affichage.setText(String.valueOf(progress+1));
+                duree_affichage = progress+1;
             }
 
             @Override
@@ -164,9 +163,9 @@ public class Options extends AppCompatActivity {
         valeur_duree_affichage = findViewById(R.id.textView_duree_affichage_valeur);
 
         seed = 0;
-        nb_entrainement = 0;
-        nb_exercices = 0;
-        duree_affichage = 0;
+        nb_entrainement = 1;
+        nb_exercices = 1;
+        duree_affichage = 1;
 
 
     }
@@ -178,13 +177,13 @@ public class Options extends AppCompatActivity {
             text_seed.setText(res[2]);
             nb_entrainement = Integer.valueOf(res[0]);
             valeur_nb_essais_entrainement.setText(res[0]);
-            nombre_essais_entrainement.setProgress(nb_entrainement);
+            nombre_essais_entrainement.setProgress(nb_entrainement-1);
             nb_exercices = Integer.valueOf(res[1]);
             valeur_nb_essais_exercice.setText(res[1]);
-            nombre_essais.setProgress(nb_exercices);
+            nombre_essais.setProgress(nb_exercices-1);
             valeur_duree_affichage.setText(res[3]);
             duree_affichage = Integer.valueOf(res[3]);
-            nombre_duree_affichage.setProgress(duree_affichage);
+            nombre_duree_affichage.setProgress(duree_affichage-1);
 
         } catch (Exception e) {
             Log.wtf("erreur lecture", "impossible de lire le fichier properties");
