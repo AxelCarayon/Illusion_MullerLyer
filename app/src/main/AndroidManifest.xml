@@ -15,9 +15,13 @@
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
         <activity
-            android:name=".Experience_ExerciceSuite"
+            android:name=".ScreenshotExplication"
             android:screenOrientation="landscape"
             android:theme="@style/AppFullScreenTheme"/>
+        <activity
+            android:name=".Experience_ExerciceSuite"
+            android:screenOrientation="landscape"
+            android:theme="@style/AppFullScreenTheme" />
         <activity
             android:name=".Consigne_ExerciceSuite"
             android:screenOrientation="landscape"

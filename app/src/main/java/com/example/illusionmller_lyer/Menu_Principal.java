@@ -21,7 +21,6 @@ public class Menu_Principal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         isStoragePermissionGranted();
-
         setContentView(R.layout.activity_menu_principal);
         final int flags = View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION

@@ -16,6 +16,7 @@ public class Consigne_Entrainement extends AppCompatActivity {
     private int exercice;
     private TextView consigne;
     private boolean suite;
+    private Button button_consigne_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +72,15 @@ public class Consigne_Entrainement extends AppCompatActivity {
 
                     button_commencer.setText("Commencer");
                 }
+            }
+        });
+
+        button_consigne_image = findViewById(R.id.button_consigne_image);
+        button_consigne_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Consigne_Entrainement.this, ScreenshotExplication.class);
+                startActivity(intent);
             }
         });
 
