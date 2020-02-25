@@ -1,8 +1,6 @@
 package com.example.illusionmller_lyer;
 
 import android.os.Environment;
-import android.util.Log;
-
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -51,7 +49,6 @@ class ReadWrite_File {
         String[] resultat = new String[4];
         File root = android.os.Environment.getExternalStorageDirectory();
         File dir = new File (root.getAbsolutePath() + "/IllusionMullerLyer");
-        //Log.i("properties",dir+filepath);
         if (checkExternalMedia()) {
             try (InputStream input = new FileInputStream(dir+filepath)) {
                 Properties prop = new Properties();
@@ -84,8 +81,6 @@ class ReadWrite_File {
             // Can't read or write
             mExternalStorageAvailable = mExternalStorageWriteable = false;
         }
-        //Log.i("medias","\n\nExternal Media: readable="
-        //        +mExternalStorageAvailable+" writable="+mExternalStorageWriteable);
         return mExternalStorageWriteable;
     }
 

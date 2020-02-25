@@ -4,7 +4,6 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.util.Log;
 import android.view.View;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -63,8 +62,8 @@ public class Draw_Canvas_Exercice extends View {
         }
 
         for (int i = 1; i < nbRepetitions/2+1; i++) {
-            valeurs.add(round(reference-(0.05)*i,2));
-            valeurs.add(round(reference+(0.05)*i,2));
+            valeurs.add(round(reference-(0.03)*i,2));
+            valeurs.add(round(reference+(0.03)*i,2));
         }
         if (nbRepetitions%2 == 1) {
             valeurs.add(reference);
@@ -75,12 +74,10 @@ public class Draw_Canvas_Exercice extends View {
         }else {
             Collections.shuffle(valeurs, r);
         }
-        Log.i("liste valeurs",""+valeurs);
 
     }
 
     public void envoyerReponse(int rep){
-        Log.i("réponse",""+ this.valeurs.get(tour));
         if (this.valeurs.get(tour) == this.reference){
             attendu.add("Egal");
         }
@@ -105,7 +102,6 @@ public class Draw_Canvas_Exercice extends View {
         }
 
         if (!secondeSerie && this.tour==tourMax-1){
-            Log.i("snd tour","reinit");
             secondeSerie = true;
             this.initValeurs(tourMax);
         }
@@ -122,9 +118,6 @@ public class Draw_Canvas_Exercice extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
-        Log.i("tour",""+tour);
-        Log.i("valeur",""+valeurs.get(tour));
-
         //Calcul coordonnées========================================================================
         int yMax = canvas.getHeight();
         int xMax = canvas.getWidth();
@@ -148,8 +141,6 @@ public class Draw_Canvas_Exercice extends View {
 
         }
     }
-
-
     public static double round(double value, int places) {
         if (places < 0) throw new IllegalArgumentException();
 
