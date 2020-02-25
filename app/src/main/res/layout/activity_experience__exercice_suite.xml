@@ -19,8 +19,8 @@
 
     <Button
         android:id="@+id/button_exo_moins_suite"
-        android:layout_width="107dp"
-        android:layout_height="39dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:text="@string/moins_grand"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

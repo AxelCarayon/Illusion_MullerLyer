@@ -1,17 +1,24 @@
 package com.example.illusionmller_lyer;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class AfficherResultats extends AppCompatActivity {
+
+    private LinearLayout linearLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,21 +49,54 @@ public class AfficherResultats extends AppCompatActivity {
                 });
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
 
-        TextView textViewReponses = findViewById(R.id.textView_reponses);
-        TextView textViewAttendu = findViewById(R.id.textView_attendu);
-        TextView textViewIndex = findViewById(R.id.textView_index);
+        Intent reponses = getIntent();
+        ArrayList<String> repNoIllusion = reponses.getStringArrayListExtra("reponsesNoIllusion");
+        ArrayList<String> attNoIllusion = reponses.getStringArrayListExtra("attenduNoIllusion");
+        ArrayList<String> repWithIllusion = reponses.getStringArrayListExtra("reponsesWithIllusion");
+        ArrayList<String> attWithIllusion = reponses.getStringArrayListExtra("attenduWithIllusion");
+        linearLayout = findViewById(R.id.LinearLayout_resultats);
 
-        textViewIndex.setText((textViewIndex.getText()+"\n"));
-        textViewReponses.setText(textViewReponses.getText()+"\n");
-        textViewAttendu.setText(textViewAttendu.getText()+"\n");
+        TextView titre1 = new TextView(this);
+        titre1.setGravity(Gravity.CENTER);
+        titre1.setTextSize(30);
+        titre1.setText("Série sans illusion :");
 
-        ArrayList<String> reponses = getIntent().getStringArrayListExtra("reponses");
-        ArrayList<String> attendu = getIntent().getStringArrayListExtra("attendu");
+        linearLayout.addView(titre1);
 
-        for (int i=0;i<reponses.size();i++){
-            textViewIndex.setText(textViewIndex.getText()+String.valueOf(i+1)+"\n");
-            textViewReponses.setText(textViewReponses.getText()+reponses.get(i)+"\n");
-            textViewAttendu.setText(textViewAttendu.getText()+attendu.get(i)+"\n");
+        //ajout des réponses sans illusion
+        for (int i = 0;i<repNoIllusion.size();i++){
+            TextView ligne = new TextView(this);
+            ligne.setGravity(Gravity.CENTER);
+            ligne.setText(repNoIllusion.get(i));
+            ligne.setTextSize(30);
+            if (repNoIllusion.get(i).equals(attNoIllusion.get(i))){
+                ligne.setTextColor(Color.GREEN);
+            }else{
+                ligne.setTextColor(Color.RED);
+            }
+            linearLayout.addView(ligne);
+        }
+
+        //ajout retour à la ligne
+        TextView titre2 = new TextView(this);
+        titre2.setGravity(Gravity.CENTER);
+        titre2.setTextSize(30);
+        titre2.setText("\nSérie avec illusion :");
+        linearLayout.addView(titre2);
+
+
+        //Ajout des réponses avec illusion
+        for (int i = 0;i<repWithIllusion.size();i++){
+            TextView ligne = new TextView(this);
+            ligne.setGravity(Gravity.CENTER);
+            ligne.setText(repWithIllusion.get(i));
+            ligne.setTextSize(30);
+            if (repWithIllusion.get(i).equals(attWithIllusion.get(i))){
+                ligne.setTextColor(Color.GREEN);
+            }else{
+                ligne.setTextColor(Color.RED);
+            }
+            linearLayout.addView(ligne);
         }
     }
 }

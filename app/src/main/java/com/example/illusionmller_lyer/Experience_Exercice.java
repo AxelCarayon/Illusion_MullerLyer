@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -123,8 +124,8 @@ public class Experience_Exercice extends AppCompatActivity {
 
     private void activiteSuivante(Class activite) {
         Intent intent = new Intent(this, activite);
-        intent.putExtra("reponses", draw_canvasExercice.getReponses());
-        intent.putExtra("attendu", draw_canvasExercice.getAttendu());
+        intent.putExtra("reponsesNoIllusion", draw_canvasExercice.getReponses());
+        intent.putExtra("attenduNoIllusion", draw_canvasExercice.getAttendu());
         startActivity(intent);
         finish();
     }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -51,7 +52,9 @@ public class Consigne_ExerciceSuite extends AppCompatActivity {
 
     public void openNewActivity(Class activite) {
         Intent intent = new Intent(this, activite);
-        //intent.putExtra("entrainement",true);
+        Intent precedent = getIntent();
+        intent.putExtra("reponsesNoIllusion",precedent.getStringArrayListExtra("reponsesNoIllusion"));
+        intent.putExtra("attenduNoIllusion",precedent.getStringArrayListExtra("attenduNoIllusion"));
         startActivity(intent);
         finish();
     }
